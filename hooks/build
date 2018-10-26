@@ -1,9 +1,16 @@
 #!/bin/bash
 set -ex
+declare -A targets
 
-for target in 2018.02.7 2018.08.2; do
+targets['latest']=2018.08.2
+targets['lts']=2018.02.7
+
+for i in "${!array[@]}"
+do
+    target=$i
+    version=${array[$i]}
     docker image build \
-        --build-arg BUILDROOT_VERSION="$target" \
+        --build-arg BUILDROOT_VERSION="$version" \
         --tag "$DOCKER_REPO:$target" \
         .
 done
