@@ -5,7 +5,7 @@ declare -A targets
 targets['latest']=2018.08.2
 targets['lts']=2018.02.7
 
-for i in "${!array[@]}"
+for i in "${!targets[@]}"
 do
     target=$i
     version=${array[$i]}
