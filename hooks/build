@@ -5,6 +5,5 @@ for target in 2018.02.7 2018.08.2; do
     docker image build \
         --build-arg BUILDROOT_VERSION="$target" \
         --tag "$DOCKER_REPO:$target" \
-        --target "$target" \
         .
 done
